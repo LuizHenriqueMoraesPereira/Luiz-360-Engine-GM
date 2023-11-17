@@ -6,7 +6,7 @@
 if (grd)
 {
 	// Limit speed value
-    gsp = min(max(gsp, -15), 15);
+	if (abs(gsp) > 15) gsp = 15 * sign(gsp);
 	
 	// Ground movement
     xsp = gsp * dcos(ang);
@@ -14,8 +14,8 @@ if (grd)
 }
 
 // Limit speed values
-xsp = min(max(xsp, -15), 15);
-ysp = min(max(ysp, -15), 15);
+if (abs(xsp) > 15) xsp = 15 * sign(xsp);
+if (abs(ysp) > 15) ysp = 15 * sign(ysp);
 
 // Move the player
 xps += xsp;
@@ -143,7 +143,7 @@ if (grd)
         floor(xps) + round(dsin(ang) * 24),
         floor(yps) + round(dcos(ang) * 24)))
     {
-        while (!PlayerCollisionMask(sMaskMain, xps, yps, round(ang / 45) * 45))
+        while (!PlayerCollisionMask(sMaskMain, xps, yps, ang))
         {
             xps += dsin(ang);
             yps += dcos(ang);
@@ -151,7 +151,7 @@ if (grd)
     }
 	
     // Uphill slopes
-    while (PlayerCollisionMask(sMaskMain, xps, yps, round(ang / 45) * 45))
+    while (PlayerCollisionMask(sMaskMain, xps, yps, ang))
     {
         xps -= dsin(ang);
         yps -= dcos(ang);
@@ -186,7 +186,7 @@ if (grd)
     }
 }
 
-// Apply positions to object
+// Apply position to object
 x = floor(xps);
 y = floor(yps);
 

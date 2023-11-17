@@ -18,16 +18,17 @@ slp = 0.203125;
 grv = 0.21875;
 jmp = 6.52;
 
-// Animations Values
+// Animation Values
 anim = "idle";
 anim_old = "none";
+anim_dir = 1;
 anim_frame = 0;
 anim_start = 0;
 anim_end = 0;
 anim_loop = 0;
 anim_speed = 0;
 anim_angle = 0;
-anim_dir = 1;
+anim_sprite = sSonic;
 anim_repeat = false;
 anim_times = 0;
 anim_linked = "none";
