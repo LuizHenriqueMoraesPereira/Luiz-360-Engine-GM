@@ -55,4 +55,13 @@ function PlayerAnimations_Sonic()
 	    anim_repeat = false;
 	    anim_linked = "none";
 	}
+	if (anim == "skid")
+	{
+	    anim_start = 27;
+	    anim_end = 30;
+	    anim_loop = 30;
+	    anim_speed = 0.25;
+	    anim_repeat = false;
+	    anim_linked = "none";
+	}
 }

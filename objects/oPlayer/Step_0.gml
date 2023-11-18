@@ -284,8 +284,9 @@ else
 // Actions
 switch (action)
 {
-    case 0: PlayerAction_Common(); break;
-    case 1: PlayerAction_Jumping(); break;
-    case 2: PlayerAction_LookUp(); break;
-    case 3: PlayerAction_CrouchDown(); break;
+	case 0: PlayerAction_Common(); break;
+	case 1: PlayerAction_Jumping(); break;
+	case 2: PlayerAction_LookUp(); break;
+	case 3: PlayerAction_CrouchDown(); break;
+	case 4: PlayerAction_Skidding(); break;
 }

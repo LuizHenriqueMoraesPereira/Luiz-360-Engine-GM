@@ -23,6 +23,7 @@
     {"id":{"name":"tTest","path":"tilesets/tTest/tTest.yy",},"order":0,},
     {"id":{"name":"sTest6","path":"sprites/sTest6/sTest6.yy",},"order":6,},
     {"id":{"name":"sTest7","path":"sprites/sTest7/sTest7.yy",},"order":7,},
+    {"id":{"name":"PlayerAction_Skidding","path":"scripts/PlayerAction_Skidding/PlayerAction_Skidding.yy",},"order":4,},
     {"id":{"name":"sTest8","path":"sprites/sTest8/sTest8.yy",},"order":8,},
     {"id":{"name":"sTest9","path":"sprites/sTest9/sTest9.yy",},"order":9,},
     {"id":{"name":"sTest10","path":"sprites/sTest10/sTest10.yy",},"order":10,},

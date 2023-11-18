@@ -18,12 +18,19 @@ function PlayerAction_Common()
 	
 	if (grd)
 	{
-		if (gsp == 0 && !(keyboard_check(vk_left) || keyboard_check(vk_right)))
+		var inputHorizontal = keyboard_check(vk_right) - keyboard_check(vk_left);
+		var inputVertical = keyboard_check(vk_down) - keyboard_check(vk_up);
+		
+		if (gsp == 0 && inputHorizontal == 0)
 		{
-			var inputVertical = keyboard_check(vk_down) - keyboard_check(vk_up);
-			
 			if (inputVertical < 0) action = 2;
 			if (inputVertical > 0) action = 3;
+		}
+		
+		if (sign(gsp) == -inputHorizontal && abs(gsp) >= 1.4)
+		{
+			action = 4;
+			allowInput = false;
 		}
 		
 		if (keyboard_check_pressed(ord("Z")))
