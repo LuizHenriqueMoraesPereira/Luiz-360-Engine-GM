@@ -10,6 +10,7 @@ lyr = 0;
 
 // Player Variables
 action = 0;
+allowInput = true;
 
 // Player Constants
 acc = 0.046875;

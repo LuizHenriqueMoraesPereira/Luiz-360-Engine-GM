@@ -2,6 +2,10 @@
 	X/Y Movement
 ==================*/
 
+// Limit speed values
+if (abs(xsp) > 15) xsp = 15 * sign(xsp);
+if (abs(ysp) > 15) ysp = 15 * sign(ysp);
+
 // Grounded state
 if (grd)
 {
@@ -12,10 +16,6 @@ if (grd)
     xsp = gsp * dcos(ang);
     ysp = gsp * -dsin(ang);
 }
-
-// Limit speed values
-if (abs(xsp) > 15) xsp = 15 * sign(xsp);
-if (abs(ysp) > 15) ysp = 15 * sign(ysp);
 
 // Move the player
 xps += xsp;
@@ -201,27 +201,30 @@ var inputHorizontal = keyboard_check(vk_right) - keyboard_check(vk_left);
 if (inputHorizontal != 0)
     anim_dir = inputHorizontal;
 
-if (grd) // Ground control
+if (allowInput)
 {
-	// Decelerate
-    if (abs(gsp) >= 0 && inputHorizontal != sign(gsp))
-    {
-        gsp = max(abs(gsp) - acc, 0) * sign(gsp);
-    }
+	if (grd) // Ground control
+	{
+		// Decelerate
+	    if (abs(gsp) >= 0 && inputHorizontal != sign(gsp))
+	    {
+	        gsp = max(abs(gsp) - acc, 0) * sign(gsp);
+	    }
     
-	// Accelerate
-    if (abs(gsp) < top)
-    {
-        gsp += acc * inputHorizontal;
-    }
-}
-else // Air control
-{
-	// Accelerate (x2)
-    if (abs(xsp) < top)
-    {
-        xsp += (acc * 2) * inputHorizontal;
-    }
+		// Accelerate
+	    if (abs(gsp) < top)
+	    {
+	        gsp += acc * inputHorizontal;
+	    }
+	}
+	else // Air control
+	{
+		// Accelerate (x2)
+	    if (abs(xsp) < top)
+	    {
+	        xsp += (acc * 2) * inputHorizontal;
+	    }
+	}
 }
 
 // Right wall collision
@@ -283,4 +286,6 @@ switch (action)
 {
     case 0: PlayerAction_Common(); break;
     case 1: PlayerAction_Jumping(); break;
+    case 2: PlayerAction_LookUp(); break;
+    case 3: PlayerAction_CrouchDown(); break;
 }

@@ -37,4 +37,22 @@ function PlayerAnimations_Sonic()
 	    anim_repeat = true;
 	    anim_linked = "none";
 	}
+	if (anim == "stand")
+	{
+	    anim_start = 23;
+	    anim_end = 24;
+	    anim_loop = 24;
+	    anim_speed = 0.125;
+	    anim_repeat = false;
+	    anim_linked = "none";
+	}
+	if (anim == "crouch")
+	{
+	    anim_start = 25;
+	    anim_end = 26;
+	    anim_loop = 26;
+	    anim_speed = 0.125;
+	    anim_repeat = false;
+	    anim_linked = "none";
+	}
 }

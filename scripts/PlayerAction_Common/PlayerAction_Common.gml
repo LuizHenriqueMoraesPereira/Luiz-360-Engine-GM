@@ -15,14 +15,25 @@ function PlayerAction_Common()
 	        anim = "run";
 	    }
 	}
-
-	if (grd && keyboard_check_pressed(ord("Z")))
+	
+	if (grd)
 	{
-	    anim = "jump";
-	    xsp -= jmp * dsin(ang);
-	    ysp -= jmp * dcos(ang);
-	    ang = 0;
-	    grd = false;
-	    action = 1;
+		if (gsp == 0 && !(keyboard_check(vk_left) || keyboard_check(vk_right)))
+		{
+			var inputVertical = keyboard_check(vk_down) - keyboard_check(vk_up);
+			
+			if (inputVertical < 0) action = 2;
+			if (inputVertical > 0) action = 3;
+		}
+		
+		if (keyboard_check_pressed(ord("Z")))
+		{
+		    anim = "jump";
+		    xsp -= jmp * dsin(ang);
+		    ysp -= jmp * dcos(ang);
+		    ang = 0;
+		    grd = false;
+		    action = 1;
+		}
 	}
 }
