@@ -27,7 +27,7 @@ function PlayerAnimations_Sonic()
 	    anim_repeat = true;
 	    anim_linked = "none";
 	}
-	if (anim == "jump" || anim == "roll")
+	if (anim == "jump")
 	{
 	    anim_angle = 0;
 	    anim_start = 15;
